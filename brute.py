@@ -136,7 +136,6 @@ def main():
 			sys.exit(1)
   
   
-  except KeyboardInterrupt:
       print wd+"Stop......."
       edit_wordlist()
       sys.exit()    	    
