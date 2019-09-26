@@ -3,6 +3,7 @@ import sys
 import time
 import json
 import urllib
+import requests
 try:
 except ImportError:
         os.system("pip2 install requests")
