@@ -4,7 +4,6 @@ import time
 import json
 import urllib
 try:
-        import requests
 except ImportError:
         os.system("pip2 install requests")
 
