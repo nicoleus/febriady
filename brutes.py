@@ -27,16 +27,15 @@ def banner():
     os.system("clear")
     os.system("toilet -f standard 'Trmx Style OIK' -F gay")
 #    print m+"+--------------------------------------+"
-    os.system("echo '|   II    II  //////////  II//////////   IIIIIIIIIIII  /////////////
-    os.system("echo '|   II    II  II      II  II      III    II        II    //   
-    os.system("echo '|   II    II  II      II  II       //    II        II     ///           
-    os.system("echo '|   II    II  II      II  II    IIIII    II        II       //// 
-    os.system("echo '|   IIIIIIII  II      II  II  IIIIIII    II        II        //
-    os.system("echo '|   II    II  II      II  II  ///////    II++++++++II        //////////     
-    os.system("echo '|   II    II  II      II  II   //        II        II              ///
-    os.system("echo '|   II    II  II      II  II   ///       II        II              ///
-    os.system("echo '|   II    II  //IIIIII//  II     /////// II        II   //////////////  
-
+    os.system("echo '|   II    II  //////////  II//////////   IIIIIIIIIIII  ///////////// ' | lolcat")
+    os.system("echo '|   II    II  II      II  II      III    II        II    //          ' | lolcat")
+    os.system("echo '|   II    II  II      II  II       //    II        II     ///        ' | lolcat")    
+    os.system("echo '|   II    II  II      II  II    IIIII    II        II       ////     ' | lolcat") 
+    os.system("echo '|   IIIIIIII  II      II  II  IIIIIII    II        II        //      ' | lolcat")
+    os.system("echo '|   II    II  II      II  II  ///////    II++++++++II        ////////// ' | lolcat")     
+    os.system("echo '|   II    II  II      II  II   //        II        II              /// ' | lolcat") 
+    os.system("echo '|   II    II  II      II  II   ///       II        II              /// ' | lolcat")
+    os.system("echo '|   II    II  //IIIIII//  II     /////// II        II   ////////////// ' | lolcat") 
     os.system("echo '|         BY: NICOLEUS F SITORUS
     print m+"+------------------------------------------------+ "
     print h+"   [\033[97m1\033[92m] \033[96mEyes Gay",h+"      [\033[97m6\033[92m] \033[96mName Lolcat"
